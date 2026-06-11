@@ -28,3 +28,27 @@ mybatis-plus:
 logging:
   level:
     com.hmdp: debug
+
+langchain4j:
+  open-ai:
+    chat-model:
+      base-url: https://open.bigmodel.cn/api/paas/v4
+      api-key: ${ANTHROPIC_AUTH_TOKEN}
+      model-name: glm-4
+      log-requests: true
+      log-responses: true
+
+    embedding-model:
+      base-url: https://open.bigmodel.cn/api/paas/v4
+      api-key: ${ANTHROPIC_AUTH_TOKEN}
+      model-name: embedding-3
+      log-requests: true
+      log-responses: true
+
+#ai:
+#  zhipu:
+#    api-key: ${ZHIPU_API_KEY:}
+#    chat-base-url: ${ZHIPU_CHAT_BASE_URL:https://open.bigmodel.cn/api/paas/v4/chat/completions}
+#    embedding-base-url: ${ZHIPU_EMBEDDING_BASE_URL:https://open.bigmodel.cn/api/paas/v4/embeddings}
+#    chat-model: ${ZHIPU_CHAT_MODEL:glm-4-flash}
+#    embedding-model: ${ZHIPU_EMBEDDING_MODEL:embedding-3}
