@@ -142,6 +142,28 @@ INSERT INTO `tb_shop` VALUES (13, '讴K拉量贩KTV(北城天地店)', 2, 'https
 INSERT INTO `tb_shop` VALUES (14, '星聚会KTV(拱墅区万达店)', 2, 'https://p0.meituan.net/dpmerchantpic/f4cd6d8d4eb1959c3ea826aa05a552c01840451.jpg,https://p0.meituan.net/dpmerchantpic/2efc07aed856a8ab0fc75c86f4b9b0061655777.jpg,https://qcloud.dpfile.com/pc/zWfzzIorCohKT0bFwsfAlHuayWjI6DBEMPHHncmz36EEMU9f48PuD9VxLLDAjdoU_Gd2X_f-v9T8Yj4uLt25Gg.jpg', '北部新城', '杭行路666号万达广场C座1-2F', 120.128958, 30.337252, 60, 0000017771, 0000000685, 47, '10:00-22:00', '2021-12-22 20:48:54', '2021-12-22 20:48:54');
 
 -- ----------------------------
+-- Table structure for tb_shop_vector
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_shop_vector`;
+CREATE TABLE `tb_shop_vector`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `shop_id` bigint(20) UNSIGNED NOT NULL COMMENT '商铺id',
+  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用于生成向量的商铺语义文本',
+  `embedding_json` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '向量JSON',
+  `embedding_model` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '向量模型名称',
+  `vector_dimension` int(8) UNSIGNED NOT NULL COMMENT '向量维度',
+  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `uniq_shop_id`(`shop_id`) USING BTREE,
+  INDEX `idx_embedding_model`(`embedding_model`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '商铺语义向量索引表' ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tb_shop_vector
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for tb_shop_type
 -- ----------------------------
 DROP TABLE IF EXISTS `tb_shop_type`;
