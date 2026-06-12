@@ -71,18 +71,11 @@
             <artifactId>aspectjweaver</artifactId>
         </dependency>
 
-        <!--langchain4j起步依赖-->
+        <!--langchain4j OpenAI 兼容模型依赖，手动创建模型 Bean，避免 Spring Boot 2.7 与新版 Starter 自动配置冲突-->
         <dependency>
             <groupId>dev.langchain4j</groupId>
-            <artifactId>langchain4j-open-ai-spring-boot-starter</artifactId>
-            <version>1.0.1-beta6</version>
-        </dependency>
-
-        <!--AiServices相关依赖-->
-        <dependency>
-            <groupId>dev.langchain4j</groupId>
-            <artifactId>langchain4j-spring-boot-starter</artifactId>
-            <version>1.0.1-beta6</version>
+            <artifactId>langchain4j-open-ai</artifactId>
+            <version>1.0.1</version>
         </dependency>
 
         <!--暂不使用流式输出，先注释掉 WebFlux 和 Reactor 相关依赖-->
